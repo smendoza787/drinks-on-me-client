@@ -1,3 +1,26 @@
 .App {
   text-align: center;
 }
+
+.navbar {
+  background-color: lightblue;
+  height: 60px;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.sidebar {
+  background-color: orangered;
+  width: 30vw;
+  height: 90vh;
+  float: left;
+}
+
+.main-content {
+  background-color: goldenrod;
+  float: left;
+  width: 70vw;
+  height: 90vh;
+}

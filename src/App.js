@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Bars from './components/Bars';
+import AddBar from './components/AddBar';
 import BarService from './services/BarService';
 import './App.css';
-
-let bars = [
-  { name: "BJ's Bar & Grill" , id: 1 },
-  { name: "Gold Spike", id: 2 }
-]
 
 class App extends Component {
   constructor() {
@@ -21,6 +17,12 @@ class App extends Component {
     BarService.fetchBars().then(bars => this.setState({ bars }))
   }
 
+  addBar = bar => {
+    BarService.createBar(bar).then(bar => this.setState({
+      bars: this.state.bars.concat(bar)
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,10 +30,10 @@ class App extends Component {
           {/*<Navbar />*/}
         </div>
         <div className="sidebar">
-          <Bars bars={bars} />
+          <Bars bars={this.state.bars} />
         </div>
         <div className="main-content">
-          {/*<Bar />*/}
+          <AddBar addBar={this.addBar} />
         </div>
       </div>
     );

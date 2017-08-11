@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
 import AddBar from './components/AddBar';
 import BarsList from './components/BarsList';
 import BarsPage from './containers/BarsPage';
+import { fetchBars } from './actions/barActions';
 import BarService from './services/BarService';
 import './App.css';
 
@@ -17,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    BarService.fetchBars().then(bars => this.setState({ bars }))
+    this.props.fetchBars();
   }
 
   addBar = bar => {
@@ -31,7 +34,7 @@ class App extends Component {
       <div>
         <NavBar />
         <div className="sidebar">
-          <BarsList bars={this.state.bars}  />
+          <BarsList bars={this.props.bars}  />
         </div>
         <div className="main-content">
           <AddBar addBar={this.addBar} />
@@ -42,4 +45,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { bars: state.bars }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchBars: fetchBars
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

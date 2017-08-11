@@ -13,7 +13,7 @@
 
 .sidebar {
   background-color: orangered;
-  width: 30vw;
+  width: 30%;
   height: 90vh;
   float: left;
 }
@@ -21,6 +21,6 @@
 .main-content {
   background-color: goldenrod;
   float: left;
-  width: 70vw;
+  width: 70%;
   height: 90vh;
 }

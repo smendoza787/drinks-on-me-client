@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Bars from './components/Bars';
+import { Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import AddBar from './components/AddBar';
+import BarsList from './components/BarsList';
+import BarsPage from './containers/BarsPage';
 import BarService from './services/BarService';
 import './App.css';
 
@@ -25,15 +28,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="navbar">
-          {/*<Navbar />*/}
-        </div>
+      <div>
+        <NavBar />
         <div className="sidebar">
-          <Bars bars={this.state.bars} />
+          <BarsList bars={this.state.bars}  />
         </div>
         <div className="main-content">
           <AddBar addBar={this.addBar} />
+          <Route path='/bars' component={BarsPage} />
         </div>
       </div>
     );

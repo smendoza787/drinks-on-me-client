@@ -6,6 +6,11 @@ const BarService = {
       .then(response => response.json())
   },
 
+  fetchBar(barId) {
+    return fetch(`${API_URL}/bars/${barId}`)
+      .then(response => response.json())
+  },
+
   createBar(bar) {
     const request = {
       method: 'POST',

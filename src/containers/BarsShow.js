@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import BarService from '../services/BarService';
-import { Route } from 'react-router-dom';
 
-class BarsShow extends Component {
-  constructor(props) {
-    super(props)
+const BarsShow = ({ bar }) => {
+  return (
+    <div>
+      <h1>Bar: {bar.name}</h1>
+      <h3>Address: {bar.address}</h3>
+      <h3>City: {bar.city}</h3>
+      <h3>State: {bar.state}</h3>
+      <h3>Rating: {bar.rating}</h3>
+    </div>
+  )
+}
 
-    this.state = {
-      bar: {}
-    }
-  }
+const mapStateToProps = (state, ownProps) => {
+  const bar = state.bars.find(bar => bar.id == ownProps.match.params.barId);
 
-  componentDidMount() {
-    BarService.fetchBar(this.props.match.params.barId).then(bar => this.setState({ bar: bar }))
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Bar: {this.state.bar.name}</h1>
-        <h3>Address: {this.state.bar.address}</h3>
-        <h3>City: {this.state.bar.city}</h3>
-        <h3>State: {this.state.bar.state}</h3>
-        <h3>Rating: {this.state.bar.rating}</h3>
-      </div>
-    )
+  if (bar) {
+    return { bar };
+  } else {
+    return { bar: {} };
   }
 }
 
-export default BarsShow;
+export default connect(mapStateToProps)(BarsShow);

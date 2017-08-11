@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addBar } from '../actions/barActions';
 
 class AddBar extends Component {
   constructor(props) {
@@ -22,7 +24,8 @@ class AddBar extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addBar(this.state);
+    const { addBar } = this.props
+    addBar(this.state)
     this.setState({
       name: '',
       address: '',
@@ -138,4 +141,4 @@ class AddBar extends Component {
   }
 }
 
-export default AddBar;
+export default connect(null, { addBar })(AddBar);

@@ -11,23 +11,15 @@ import BarService from './services/BarService';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      bars: []
-    }
-  }
-
   componentDidMount() {
     this.props.fetchBars();
   }
 
-  addBar = bar => {
-    BarService.createBar(bar).then(bar => this.setState({
-      bars: this.state.bars.concat(bar)
-    }))
-  }
+  // addBar = bar => {
+  //   BarService.createBar(bar).then(bar => this.setState({
+  //     bars: this.state.bars.concat(bar)
+  //   }))
+  // }
 
   render() {
     return (
@@ -37,7 +29,7 @@ class App extends Component {
           <BarsList bars={this.props.bars}  />
         </div>
         <div className="main-content">
-          <AddBar addBar={this.addBar} />
+          <AddBar />
           <Route path='/bars' component={BarsPage} />
         </div>
       </div>

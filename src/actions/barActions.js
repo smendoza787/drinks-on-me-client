@@ -10,3 +10,10 @@ export function fetchBars() {
       .then(bars => dispatch({ type: 'FETCH_BARS', payload: bars }));
   }
 }
+
+export function addBar(bar) {
+  return {
+    type: 'ADD_BAR',
+    payload: bar
+  }
+}

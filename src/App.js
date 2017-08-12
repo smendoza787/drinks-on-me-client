@@ -5,16 +5,22 @@ import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Main from './components/Main';
-import AddBar from './components/AddBar';
+// import AddBar from './components/AddBar';
 import BarsList from './components/BarsList';
 import BarsPage from './containers/BarsPage';
 import { fetchBars } from './actions/barActions';
-import BarService from './services/BarService';
+import { setLocation } from './actions/locationActions';
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchBars();
+  componentWillMount() {
+    this.setLocation()
+  }
+
+  setLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.props.setLocation(position.coords)
+    })
   }
 
   // addBar = bar => {
@@ -29,22 +35,28 @@ class App extends Component {
         <NavBar />
         <BarsList bars={this.props.bars}  />
         <Main>
-          <AddBar />
+          {/*<AddBar />*/}
           <Route exact path="/" component={Home} />
           <Route path='/bars' component={BarsPage} />
         </Main>
+        <p>{this.props.position.latitude}</p>
+        <p>{this.props.position.longitude}</p>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { bars: state.bars }
+  return {
+    bars: state.bars,
+    position: state.position
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchBars: fetchBars
+    fetchBars: fetchBars,
+    setLocation: setLocation
   }, dispatch)
 }
 

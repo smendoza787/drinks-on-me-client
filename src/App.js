@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
+import Main from './components/Main';
 import AddBar from './components/AddBar';
 import BarsList from './components/BarsList';
 import BarsPage from './containers/BarsPage';
@@ -27,11 +28,11 @@ class App extends Component {
       <div>
         <NavBar />
         <BarsList bars={this.props.bars}  />
-        <div className="main-content">
+        <Main>
           <AddBar />
           <Route exact path="/" component={Home} />
           <Route path='/bars' component={BarsPage} />
-        </div>
+        </Main>
       </div>
     );
   }

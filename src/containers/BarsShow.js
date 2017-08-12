@@ -5,10 +5,9 @@ import BarService from '../services/BarService';
 const BarsShow = ({ bar }) => {
   return (
     <div>
-      <h1>Bar: {bar.name}</h1>
-      <h3>Address: {bar.address}</h3>
-      <h3>City: {bar.city}</h3>
-      <h3>State: {bar.state}</h3>
+      <h1>{bar.name}</h1>
+      <h3>{bar.address}</h3>
+      <h3>{bar.city}, {bar.state}</h3>
       <h3>Rating: {bar.rating}</h3>
     </div>
   )

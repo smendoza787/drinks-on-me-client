@@ -9,7 +9,7 @@ const BarsList = ({ bars }) => {
   )
 
   return (
-    <div>
+    <div className="sidebar">
       {renderBars}
     </div>
   )

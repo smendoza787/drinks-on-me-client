@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
+import Home from './components/Home';
 import AddBar from './components/AddBar';
 import BarsList from './components/BarsList';
 import BarsPage from './containers/BarsPage';
@@ -25,11 +26,10 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <div className="sidebar">
-          <BarsList bars={this.props.bars}  />
-        </div>
+        <BarsList bars={this.props.bars}  />
         <div className="main-content">
           <AddBar />
+          <Route exact path="/" component={Home} />
           <Route path='/bars' component={BarsPage} />
         </div>
       </div>

@@ -5,10 +5,10 @@ import BarService from '../services/BarService';
 const BarsShow = ({ bar }) => {
   return (
     <div>
-      <h1>{bar.name}</h1>
-      <h3>{bar.vicinity}</h3>
       <img src={bar.icon} />
+      <h1>{bar.name}</h1>
       <p>Rating: {bar.rating}</p>
+      <h3>{bar.vicinity}</h3>
     </div>
   )
 }

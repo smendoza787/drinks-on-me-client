@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import BarsList from '../components/BarsList';
-import BarsShow from './BarsShow';
+import BarsShow from '../containers/BarsShow';
 
 const BarsPage = ({ match, bars }) =>
   <div>

@@ -5,9 +5,9 @@ import BarService from '../services/BarService';
 const BarsShow = ({ bar }) => {
   return (
     <div>
+    <img src={bar.icon} />
       <h1>{bar.name}</h1>
       <h3>{bar.formatted_address}</h3>
-      <img src={bar.icon} />
       <p>Rating: {bar.rating}</p>
     </div>
   )

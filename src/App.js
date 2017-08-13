@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import BarsList from './components/BarsList';
 import Main from './components/Main';
 import Home from './components/Home';
-import BarsPage from './containers/BarsPage';
+import BarsPage from './components/BarsPage';
 import AboutPage from './components/AboutPage';
 // import AddBar from './components/AddBar';
 import { fetchBars } from './actions/barActions';

@@ -9,7 +9,7 @@ import Main from './components/Main';
 import BarsList from './components/BarsList';
 import BarsPage from './containers/BarsPage';
 import { fetchBars } from './actions/barActions';
-import { setLocation } from './actions/locationActions';
+import { fetchPlaces } from './actions/locationActions';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
 
   setLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      this.props.setLocation(position.coords)
+      this.props.fetchPlaces(position.coords.latitude, position.coords.longitude)
     })
   }
 
@@ -39,8 +39,6 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path='/bars' component={BarsPage} />
         </Main>
-        <p>{this.props.position.latitude}</p>
-        <p>{this.props.position.longitude}</p>
       </div>
     );
   }
@@ -56,7 +54,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     fetchBars: fetchBars,
-    setLocation: setLocation
+    fetchPlaces: fetchPlaces
   }, dispatch)
 }
 

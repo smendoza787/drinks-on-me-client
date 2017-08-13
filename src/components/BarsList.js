@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BarsList = ({ bars }) => {
   const renderBars = bars.map(bar =>
-    <h4>
-      <Link key={bar.id} to={`/bars/${bar.id}`}>{bar.name}</Link>
-    </h4>
+    <Link key={bar.name} to={`/bars/${bar.id}`}><h4>{bar.name}</h4></Link>
   )
 
   return (

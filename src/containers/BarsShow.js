@@ -6,9 +6,9 @@ const BarsShow = ({ bar }) => {
   return (
     <div>
       <h1>{bar.name}</h1>
-      <h3>{bar.address}</h3>
-      <h3>{bar.city}, {bar.state}</h3>
-      <h3>Rating: {bar.rating}</h3>
+      <h3>{bar.formatted_address}</h3>
+      <img src={bar.icon} />
+      <p>Rating: {bar.rating}</p>
     </div>
   )
 }

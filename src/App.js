@@ -3,11 +3,12 @@ import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
-import Home from './components/Home';
-import Main from './components/Main';
-// import AddBar from './components/AddBar';
 import BarsList from './components/BarsList';
+import Main from './components/Main';
+import Home from './components/Home';
 import BarsPage from './containers/BarsPage';
+import AboutPage from './components/AboutPage';
+// import AddBar from './components/AddBar';
 import { fetchBars } from './actions/barActions';
 import { fetchPlaces } from './actions/locationActions';
 import './App.css';
@@ -37,6 +38,7 @@ class App extends Component {
         <Main>
           {/*<AddBar />*/}
           <Route exact path="/" component={Home} />
+          <Route exact path='/about' component={AboutPage} />
           <Route path='/bars' component={BarsPage} />
         </Main>
       </div>

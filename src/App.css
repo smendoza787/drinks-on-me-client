@@ -16,6 +16,9 @@
   width: 30%;
   height: 90vh;
   float: left;
+  position: fixed;
+  left: 0;
+  overflow: scroll;
 }
 
 .main-content {
@@ -23,4 +26,7 @@
   float: left;
   width: 70%;
   height: 90vh;
+  position: fixed;
+  right: 0;
+  overflow: scroll;
 }

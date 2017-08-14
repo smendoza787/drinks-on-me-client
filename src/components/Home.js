@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Home = () =>
-	<div>
-		<h1>Drinks On Me</h1>
-		<p>Rate, Review, and Comment on your favorite local watering holes.</p>
-		<p>Select a bar from the menu.</p>
-	</div>
+const Home = () => {
+	return (
+		<div className="card m-5" style={{width: '22rem'}}>
+	  	<div className="view overlay hm-white-slight">
+			  <a href="#">
+			    <div className="mask"></div>
+			 	</a>
+			</div>
+		</div>
+	)
+}
 
 export default Home;

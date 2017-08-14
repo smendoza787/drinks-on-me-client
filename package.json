@@ -13,6 +13,7 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "react-scripts": "1.0.11",
     "react-tap-event-plugin": "^2.0.1",
+    "react-toolbox": "^2.0.0-beta.12",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "thunk": "0.0.1"

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './components/NavBar';
 import BarsList from './components/BarsList';
 import Main from './components/Main';
@@ -32,16 +33,18 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-        <BarsList bars={this.props.bars}  />
-        <Main>
-          {/*<AddBar />*/}
-          <Route exact path="/" component={Home} />
-          <Route exact path='/about' component={AboutPage} />
-          <Route path='/bars' component={BarsPage} />
-        </Main>
-      </div>
+        <MuiThemeProvider>
+          <div>
+            <NavBar />
+            <BarsList bars={this.props.bars}  />
+            <Main>
+              {/*<AddBar />*/}
+              <Route exact path="/" component={Home} />
+              <Route exact path='/about' component={AboutPage} />
+              <Route path='/bars' component={BarsPage} />
+            </Main>
+          </div>
+        </MuiThemeProvider>
     );
   }
 }

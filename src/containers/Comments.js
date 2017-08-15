@@ -32,11 +32,33 @@ class Comments extends Component {
 
   renderComment = (comment, index) => {
     return (
-      <div className="comment" key={index}>
-        <p>
-          <strong>{comment.author}</strong>
-          {comment.comment}
-        </p>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          backgroundColor: '#fff',
+          padding: '10px',
+          margin: '15px auto',
+          borderRadius: '2px',
+          boxShadow: '0px 8px 15px rgb(165, 165, 165)',
+          minWidth: '500px',
+          maxWidth: '25%',
+          minHeight: '125px'
+        }}
+        key={index}
+      >
+        <div style={{ padding: '10px' }}>
+          <img src="http://i.imgur.com/JKNPJij.jpg" height="75" width="75" alt="cat" style={{ borderRadius: '50%'}} />
+          <p>{comment.author}</p>
+        </div>
+        <div style={{
+          backgroundColor: 'rgba(116, 195, 218, 0.77)',
+          padding: '10px',
+          borderRadius: '5px',
+          flexGrow: '3',
+          overflow: 'scroll'
+        }}>{comment.comment}</div>
       </div>
     )
   }
@@ -44,7 +66,6 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        {this.props.barComments.map(this.renderComment)}
         <form  ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
           <input
           type="text"
@@ -62,6 +83,7 @@ class Comments extends Component {
           type="submit"
           hidden />
         </form>
+        {this.props.barComments.map(this.renderComment)}
       </div>
     )
   }

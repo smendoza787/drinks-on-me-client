@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MenuItem from 'material-ui/MenuItem'
+import FontAwesome from 'react-fontawesome'
 
 const BarsList = ({ bars }) => {
   let renderBars
 
   if (bars.length > 0) {
     renderBars = bars.map(bar =>
-      <MenuItem style={{ color: 'white' }}>
-        <Link key={bar.name} to={`/bars/${bar.id}`}><h4>{bar.name}</h4></Link>
+      <MenuItem>
+        <Link key={bar.name} to={`/bars/${bar.id}`}>{bar.name}</Link>
       </MenuItem>
     )
   } else {
@@ -19,6 +20,9 @@ const BarsList = ({ bars }) => {
 
   return (
     <div className="sidebar">
+      <h3>
+        Your Local Bars <FontAwesome name='glass' />
+      </h3>
       {renderBars}
     </div>
   )

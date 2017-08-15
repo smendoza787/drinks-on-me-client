@@ -4,12 +4,17 @@
   font-family: 'Roboto', sans-serif;
 }
 
+a {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .navbar {
-  background-color: lightblue;
   height: 60px;
   text-align: center;
 }
@@ -19,8 +24,8 @@
 }
 
 .sidebar {
-  background-color: #F4806D;
-  width: 30%;
+  background-color: #CFD8DC;
+  width: 20%;
   height: 90vh;
   float: left;
   position: fixed;
@@ -32,9 +37,9 @@
 }
 
 .main-content {
-  background-color: #FFFFD3;
+  /*background-color: #FFFFD3;*/
   float: left;
-  width: 70%;
+  width: 80%;
   height: 90vh;
   position: fixed;
   right: 0;

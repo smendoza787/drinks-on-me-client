@@ -5,16 +5,19 @@ import Comments from './Comments'
 
 class BarsShow extends Component {
   render() {
-    debugger
-    return (
-      <div>
+    if (this.props.bar == {}) {
+      return <div>No</div>
+    } else {
+      return (
+        <div>
         <img src={this.props.bar.icon} />
         <h1>{this.props.bar.name}</h1>
         <h3>{this.props.bar.vicinity}</h3>
         <p>Rating: {this.props.bar.rating}</p>
         <Comments barComments={this.props.comments} match={this.props.match} />
-      </div>
-    )
+        </div>
+      )
+    }
   }
 }
 

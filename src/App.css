@@ -5,9 +5,7 @@
 }
 
 a {
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  color: white;
 }
 
 .App {
@@ -24,7 +22,7 @@ a {
 }
 
 .sidebar {
-  background-color: #CFD8DC;
+  background-color: #84848B;
   width: 20%;
   height: 90vh;
   float: left;

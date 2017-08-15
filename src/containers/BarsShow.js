@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Comments from './Comments'
+// import { fetchPhoto } from '../actions/barActions'
 // import BarService from '../services/BarService'
 
 class BarsShow extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      photo: ''
+    }
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:3001/api/unsplash')
+      .then(response => response.json())
+      .then(photo => this.setState({ photo: photo.url }))
+  }
+
   render() {
     return (
       <div>
-        <img src={this.props.bar.icon} />
+        <img src={this.state.photo} alt="bar photo" />
         <h1>{this.props.bar.name}</h1>
-        <h3>{this.props.bar.vicinity}</h3>
         <p>Rating: {this.props.bar.rating}</p>
+        <h3>{this.props.bar.vicinity}</h3>
         <Comments barComments={this.props.comments} match={this.props.match} />
       </div>
     )
@@ -24,8 +39,7 @@ const mapStateToProps = (state, ownProps) => {
   if (bar) {
     return {
       bar: bar,
-      comments: comments
-    }
+      comments: comments    }
   } else {
     return { bar: {} }
   }

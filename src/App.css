@@ -31,9 +31,14 @@ a {
   position: fixed;
   left: 0;
   overflow: scroll;
-  text-align: center;
+  text-align: justify;
   box-shadow: 0px -2px 10px #777;
   z-index: 5
+}
+
+.sidebar h3,
+.sidebar p {
+  text-align: center;
 }
 
 .main-content {
@@ -45,4 +50,45 @@ a {
   right: 0;
   overflow: scroll;
   text-align: center;
+}
+
+.comment-box {
+  margin: 15px auto;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgb(165, 165, 165);
+  min-width: 750px;
+  max-width: 25%;
+  min-height: 125px;
+}
+
+.comment-content {
+  background-color: rgb(207, 216, 220);
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  flex-grow: 3;
+  overflow: scroll;
+}
+
+.comment-author-content {
+  display: flex;
+}
+
+.comment-date {
+  padding: 10px;
+  background-color: #2196f3;
+  border-radius: 5px 5px 0 0;
+  color: white;
+}
+
+.comment-form {
+  width: 500px;
+  margin: 25px auto;
+  box-shadow: 0 2px 6px #777;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.comment-form-container {
+  background-color: #DADADF;
+  padding: 25px;
 }

@@ -24,7 +24,8 @@ class Comments extends Component {
     const comment = {
       author: this.refs.author.value,
       comment: this.refs.comment.value,
-      barId: this.props.match.params.barId
+      barId: this.props.match.params.barId,
+      date: new Date().toString()
     }
     this.props.addComment(comment)
     this.refs.commentForm.reset()
@@ -32,33 +33,19 @@ class Comments extends Component {
 
   renderComment = (comment, index) => {
     return (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          backgroundColor: '#fff',
-          padding: '10px',
-          margin: '15px auto',
-          borderRadius: '2px',
-          boxShadow: '0px 8px 15px rgb(165, 165, 165)',
-          minWidth: '500px',
-          maxWidth: '25%',
-          minHeight: '125px'
-        }}
-        key={index}
-      >
-        <div style={{ padding: '10px' }}>
-          <img src="http://i.imgur.com/JKNPJij.jpg" height="75" width="75" alt="cat" style={{ borderRadius: '50%'}} />
-          <p>{comment.author}</p>
+      <div className="comment-box" key={index}>
+        <div className="comment-date">
+          {comment.date}
         </div>
-        <div style={{
-          backgroundColor: 'rgba(116, 195, 218, 0.77)',
-          padding: '10px',
-          borderRadius: '5px',
-          flexGrow: '3',
-          overflow: 'scroll'
-        }}>{comment.comment}</div>
+        <div className="comment-author-content">
+          <div style={{ padding: '10px' }}>
+            <img src="http://i.imgur.com/JKNPJij.jpg" height="75" width="75" alt="cat" style={{ borderRadius: '50%'}} />
+            <h3>{comment.author}</h3>
+          </div>
+          <div className="comment-content">
+            <h4>{comment.comment}</h4>
+          </div>
+        </div>
       </div>
     )
   }
@@ -66,23 +53,28 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        <form  ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
-          <input
-          type="text"
-          name="author"
-          ref="author"
-          placeholder="author"
-          onChange={this.handleOnChange} />
-          <input
-          type="text"
-          name="comment"
-          ref="comment"
-          placeholder="comment"
-          onChange={this.handleOnChange} />
-          <input
-          type="submit"
-          hidden />
-        </form>
+        <div className="comment-form-container">
+          <h1>Leave a Comment</h1>
+          <div className="comment-form">
+            <form ref="commentForm" onSubmit={this.handleSubmit}>
+              <input
+              type="text"
+              name="author"
+              ref="author"
+              placeholder="author"
+              onChange={this.handleOnChange} />
+              <input
+              type="text"
+              name="comment"
+              ref="comment"
+              placeholder="comment"
+              onChange={this.handleOnChange} />
+              <input
+              type="submit"
+              hidden />
+            </form>
+          </div>
+        </div>
         {this.props.barComments.map(this.renderComment)}
       </div>
     )

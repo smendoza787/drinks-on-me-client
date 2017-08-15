@@ -13,7 +13,7 @@ const BarsList = ({ bars }) => {
       </MenuItem>
     )
   } else {
-    renderBars = <p>Getting nearby business information...</p>
+    renderBars = <p style={{ marginTop: '250px' }}>Getting nearby business information...</p>
   }
 
 

@@ -1,28 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Comments from './Comments'
-// import { fetchPhoto } from '../actions/barActions'
+import { fetchPhoto } from '../actions/barActions'
 // import BarService from '../services/BarService'
 
 class BarsShow extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      photo: ''
-    }
-  }
-
-  componentWillMount() {
-    fetch('http://localhost:3001/api/unsplash')
-      .then(response => response.json())
-      .then(photo => this.setState({ photo: photo.url }))
+  componentDidMount() {
+    this.props.fetchPhoto()
   }
 
   render() {
     return (
       <div>
-        <img src={this.state.photo} alt="bar photo" />
+        <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
         <h1>{this.props.bar.name}</h1>
         <p>Rating: {this.props.bar.rating}</p>
         <h3>{this.props.bar.vicinity}</h3>
@@ -33,16 +24,24 @@ class BarsShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const bar = state.bars.find(bar => bar.id == ownProps.match.params.barId)
-  const comments = state.comments.filter(comment => comment.barId == ownProps.match.params.barId)
+  const bar = state.bars.find(bar => bar.id === ownProps.match.params.barId)
+  const comments = state.comments.filter(comment => comment.barId === ownProps.match.params.barId)
 
   if (bar) {
     return {
       bar: bar,
-      comments: comments    }
+      comments: comments,
+      photo: state.photo
+    }
   } else {
     return { bar: {} }
   }
 }
 
-export default connect(mapStateToProps)(BarsShow)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchPhoto: fetchPhoto
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BarsShow)

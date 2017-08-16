@@ -90,3 +90,9 @@ a {
   background-color: #DADADF;
   padding: 25px;
 }
+
+/* Bar Photo */
+
+.bar-photo {
+  max-width: 75%;
+}

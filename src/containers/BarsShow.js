@@ -18,11 +18,15 @@ class BarsShow extends Component {
 
   render() {
     return (
-      <div>
-        <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
-        <h1>{this.props.bar.name}</h1>
-        <p>Rating: {this.props.bar.rating}</p>
-        <h3>{this.props.bar.vicinity}</h3>
+      <div className="bar-show">
+        <div className="bar-show-top-row">
+          <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
+          <div className="bar-details">
+          <h1>{this.props.bar.name}</h1>
+          <h2>Rating: {this.props.bar.rating}</h2>
+          <h3>{this.props.bar.vicinity}</h3>
+          </div>
+        </div>
         <Comments barComments={this.props.comments} match={this.props.match} />
       </div>
     )

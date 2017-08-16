@@ -20,7 +20,7 @@ const BarsList = ({ bars }) => {
 
   return (
     <div className="sidebar">
-      <h3>
+      <h3 style={{ color: '#b1b1b1' }}>
         Your Local Bars <FontAwesome name='glass' />
       </h3>
       {renderBars}

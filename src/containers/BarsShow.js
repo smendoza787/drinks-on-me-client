@@ -34,7 +34,6 @@ class BarsShow extends Component {
           <h1>{this.props.bar.name}</h1>
           <h2>{this.renderStars(this.props.bar.rating)}</h2>
           <h3>{this.props.bar.vicinity}</h3>
-          <p>{this.props.bar.opening_hours.open_now}</p>
           </div>
         </div>
         <Comments barComments={this.props.comments} match={this.props.match} />

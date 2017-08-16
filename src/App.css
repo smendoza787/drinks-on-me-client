@@ -22,7 +22,7 @@ a {
 }
 
 .sidebar {
-  background-color: #84848B;
+  background-color: #424242;
   width: 20%;
   height: 90vh;
   float: left;
@@ -40,7 +40,6 @@ a {
 }
 
 .main-content {
-  /*background-color: #FFFFD3;*/
   float: left;
   width: 80%;
   height: 90vh;
@@ -114,4 +113,21 @@ a {
   box-shadow: 0 8px 15px #777;
   padding: 15px;
   border-radius: 5px;
+  max-width: 460px;
+}
+
+.main-header {
+  font-size: 4em;
+  text-shadow: 0 2px 6px #000;
+}
+
+.main-subheader {
+  text-shadow: 0 2px 6px #000;
+}
+
+.home-page {
+  padding: 150px 0 200px 0;
+  background-image: url('http://i.imgur.com/SESc4kp.jpg');
+  background-size: cover;
+  color: #fff;
 }

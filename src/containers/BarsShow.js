@@ -10,6 +10,12 @@ class BarsShow extends Component {
     this.props.fetchPhoto()
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.barId !== prevProps.match.params.barId) {
+      this.props.fetchPhoto()
+    }
+  }
+
   render() {
     return (
       <div>

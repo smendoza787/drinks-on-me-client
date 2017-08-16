@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Comments from './Comments'
 import { fetchPhoto } from '../actions/barActions'
-// import BarService from '../services/BarService'
+import FontAwesome from 'react-fontawesome'
 
 class BarsShow extends Component {
   componentDidMount() {
@@ -16,6 +16,15 @@ class BarsShow extends Component {
     }
   }
 
+  renderStars = (rating) => {
+    let numOfStars = parseInt(rating)
+    let faIcons = []
+    for (var i = 0; i < numOfStars; i++) {
+      faIcons.push(<FontAwesome name="star" />)
+    }
+    return faIcons
+  }
+
   render() {
     return (
       <div className="bar-show">
@@ -23,8 +32,9 @@ class BarsShow extends Component {
           <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
           <div className="bar-details">
           <h1>{this.props.bar.name}</h1>
-          <h2>Rating: {this.props.bar.rating}</h2>
+          <h2>{this.renderStars(this.props.bar.rating)}</h2>
           <h3>{this.props.bar.vicinity}</h3>
+          <p>{this.props.bar.opening_hours.open_now}</p>
           </div>
         </div>
         <Comments barComments={this.props.comments} match={this.props.match} />

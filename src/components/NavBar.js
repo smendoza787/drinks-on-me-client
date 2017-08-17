@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <AppBar
     title="DrinkUp"
-    style={{ backgroundColor: '#fb3a4c', zIndex: '10', alignItems: 'center', color: '#000' }}
+    style={{ backgroundColor: '#e60000', zIndex: '10', alignItems: 'center', color: '#000' }}
     showMenuIconButton={false} >
       <NavLink
       style={{ marginRight: '10px'}}

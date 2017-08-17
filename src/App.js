@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NavBar from './components/NavBar';
-import BarsList from './components/BarsList';
-import Main from './components/Main';
-import Home from './components/Home';
-import BarsPage from './components/BarsPage';
-import AboutPage from './components/AboutPage';
-// import AddBar from './components/AddBar';
-import { fetchBars } from './actions/barActions';
-import { fetchPlaces } from './actions/locationActions';
-import './App.css';
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import NavBar from './components/NavBar'
+import BarsList from './components/BarsList'
+import Main from './components/Main'
+import Home from './components/Home'
+import BarsPage from './components/BarsPage'
+import AboutPage from './components/AboutPage'
+import AddBar from './containers/AddBar'
+import { fetchBars } from './actions/barActions'
+import { fetchPlaces } from './actions/locationActions'
+import './App.css'
 
 class App extends Component {
   componentWillMount() {
@@ -25,12 +25,6 @@ class App extends Component {
     })
   }
 
-  // addBar = bar => {
-  //   BarService.createBar(bar).then(bar => this.setState({
-  //     bars: this.state.bars.concat(bar)
-  //   }))
-  // }
-
   render() {
     return (
         <MuiThemeProvider>
@@ -38,14 +32,14 @@ class App extends Component {
             <NavBar />
             <BarsList bars={this.props.bars}  />
             <Main>
-              {/*<AddBar />*/}
               <Route exact path="/" component={Home} />
               <Route exact path='/about' component={AboutPage} />
               <Route path='/bars' component={BarsPage} />
+              <Route path='bars/new' component={AddBar} />
             </Main>
           </div>
         </MuiThemeProvider>
-    );
+    )
   }
 }
 
@@ -63,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -9,14 +9,14 @@ const NavBar = () => {
     style={{ backgroundColor: '#e60000', zIndex: '10', alignItems: 'center', color: '#000' }}
     showMenuIconButton={false} >
       <NavLink
-      style={{ marginRight: '10px'}}
-      to="/" >
-        Home
+        style={{ marginRight: '10px'}}
+        to="/" >
+          Home
       </NavLink>
       <NavLink
-      style={{ marginRight: '10px'}}
-      to="/about" >
-      About
+        style={{ marginRight: '10px'}}
+        to="/about" >
+        About
       </NavLink>
     </AppBar>
   )

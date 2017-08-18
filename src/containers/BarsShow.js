@@ -31,9 +31,9 @@ class BarsShow extends Component {
         <div className="bar-show-top-row">
           <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
           <div className="bar-details">
-          <h1>{this.props.bar.name}</h1>
-          <h2>{this.renderStars(this.props.bar.rating)}</h2>
-          <h3>{this.props.bar.vicinity}</h3>
+            <h1>{this.props.bar.name}</h1>
+            <h2>{this.renderStars(this.props.bar.rating)}</h2>
+            <h3>{this.props.bar.vicinity}</h3>
           </div>
         </div>
         <Comments barComments={this.props.comments} match={this.props.match} />

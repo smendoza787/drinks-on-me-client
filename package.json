@@ -2,6 +2,7 @@
   "name": "drinks-on-me-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
@@ -29,6 +30,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:3001/",
+  }
 }

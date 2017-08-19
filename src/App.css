@@ -125,10 +125,6 @@ a:hover {
   color: white;
 }
 
-.bar-details h2 {
-  color: #ffd334;
-}
-
 .main-header {
   font-size: 4em;
   text-shadow: 0 2px 6px #000;
@@ -191,4 +187,8 @@ h3 strong {
   display: inline-block;
   border-radius: 5px;
   color: white;
+}
+
+.fa-star {
+  color: #ffd334;
 }

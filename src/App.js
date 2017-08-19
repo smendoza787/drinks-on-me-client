@@ -31,7 +31,7 @@ class App extends Component {
         <MuiThemeProvider>
           <div>
             <NavBar />
-            <BarsList bars={this.props.bars.bars}  />
+            <BarsList bars={this.props.bars.bars} favoriteBars={this.props.bars.favoriteBars}  />
             <Main>
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={AboutPage} />

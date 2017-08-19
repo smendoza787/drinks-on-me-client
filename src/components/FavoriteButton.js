@@ -2,25 +2,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addFavoriteBar, removeFavoriteBar } from '../actions/barActions'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class FavoriteButton extends Component {
 
-  onAddFavClick(e) {
+  onAddFavClick = () => {
     this.props.addFavoriteBar(this.props.bar)
   }
 
-  onRemoveFavClick(e) {
+  onRemoveFavClick = () => {
     this.props.removeFavoriteBar(this.props.bar)
   }
 
   render() {
     if (this.props.favoriteBars.includes(this.props.bar)) {
       return (
-        <button onClick={(e) => this.onRemoveFavClick(e)}>Remove From Favorites</button>
+        <RaisedButton
+        label="Remove From Favorites"
+        onClick={this.onRemoveFavClick} />
       )
     } else {
       return (
-        <button onClick={(e) => this.onAddFavClick(e)}>Add To Favorites</button>
+        <RaisedButton
+        label="Add To Favorites"
+        primary={true}
+        onClick={this.onAddFavClick} />
       )
     }
   }

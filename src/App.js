@@ -10,6 +10,7 @@ import Home from './components/Home'
 import BarsPage from './components/BarsPage'
 import AboutPage from './components/AboutPage'
 import AddBar from './containers/AddBar'
+import FavoritesPage from './containers/FavoritesPage'
 import { fetchBars } from './actions/barActions'
 import { fetchPlaces } from './actions/locationActions'
 import './App.css'
@@ -32,9 +33,10 @@ class App extends Component {
             <NavBar />
             <BarsList bars={this.props.bars.bars}  />
             <Main>
-              <Route exact path="/" component={Home} />
+              <Route exact path='/' component={Home} />
               <Route exact path='/about' component={AboutPage} />
               <Route path='/bars' component={BarsPage} />
+              <Route path='/favorites' component={FavoritesPage} />
             </Main>
           </div>
         </MuiThemeProvider>

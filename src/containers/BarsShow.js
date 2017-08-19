@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Comments from './Comments'
 import FavoriteButton from '../components/FavoriteButton'
+import BarDetails from '../components/BarDetails'
 import { fetchPhoto } from '../actions/barActions'
 import FontAwesome from 'react-fontawesome'
 
@@ -28,18 +29,13 @@ class BarsShow extends Component {
 
   render() {
     return (
-      <div className="bar-show">
-        <div className="bar-show-top-row">
-          <img className="bar-photo" src={this.props.photo.photo.url} alt="bar photo" />
-          <div className="bar-details">
-            <h1>{this.props.bar.name}</h1>
-            <h2>{this.renderStars(this.props.bar.rating)}</h2>
-            <h3>{this.props.bar.vicinity}</h3>
-            <FavoriteButton bar={this.props.bar} />
-          </div>
-        </div>
-        <Comments barComments={this.props.comments} match={this.props.match} />
-      </div>
+      <BarDetails
+        photo={this.props.photo}
+        bar={this.props.bar}
+        renderStars={this.renderStars}
+        comments={this.props.comments}
+        matchUrl={this.props.match}
+      />
     )
   }
 }

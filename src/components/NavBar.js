@@ -18,6 +18,11 @@ const NavBar = () => {
         to="/about" >
         About
       </NavLink>
+      <NavLink
+        style={{ marginRight: '10px'}}
+        to="/favorites" >
+        My Favorite Bars
+      </NavLink>
     </AppBar>
   )
 }

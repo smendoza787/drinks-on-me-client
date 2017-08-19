@@ -20,11 +20,15 @@ class BarsShow extends Component {
 
   renderStars = (rating) => {
     let numOfStars = parseInt(rating)
-    let faIcons = []
-    for (var i = 0; i < numOfStars; i++) {
-      faIcons.push(<FontAwesome name="star" />)
+    if (numOfStars > 0) {
+      let faIcons = []
+      for (var i = 0; i < numOfStars; i++) {
+        faIcons.push(<FontAwesome name="star" />)
+      }
+      return faIcons
+    } else {
+      return "No rating"
     }
-    return faIcons
   }
 
   render() {

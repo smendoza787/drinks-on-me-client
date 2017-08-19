@@ -18,6 +18,26 @@ export function addBar(bar) {
   }
 }
 
+export function fetchFavoriteBars() {
+  return {
+    type: 'FETCH_FAVORITE_BARS'
+  }
+}
+
+export function addFavoriteBar(bar) {
+  return {
+    type: 'ADD_FAVORITE_BAR',
+    payload: bar
+  }
+}
+
+export function removeFavoriteBar(bar) {
+  return {
+    type: 'REMOVE_FAVORITE_BAR',
+    payload: bar
+  }
+}
+
 export function fetchPhoto() {
   return (dispatch) => {
     dispatch({ type: 'LOADING_PHOTO' })

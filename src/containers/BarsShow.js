@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Comments from './Comments'
+import FavoriteButton from '../components/FavoriteButton'
 import { fetchPhoto } from '../actions/barActions'
 import FontAwesome from 'react-fontawesome'
 
@@ -34,6 +35,7 @@ class BarsShow extends Component {
             <h1>{this.props.bar.name}</h1>
             <h2>{this.renderStars(this.props.bar.rating)}</h2>
             <h3>{this.props.bar.vicinity}</h3>
+            <FavoriteButton bar={this.props.bar} />
           </div>
         </div>
         <Comments barComments={this.props.comments} match={this.props.match} />
@@ -43,7 +45,7 @@ class BarsShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const bar = state.bars.find(bar => bar.id === ownProps.match.params.barId)
+  const bar = state.bars.bars.find(bar => bar.id === ownProps.match.params.barId)
   const comments = state.comments.filter(comment => comment.barId === ownProps.match.params.barId)
 
   if (bar) {

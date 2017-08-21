@@ -125,6 +125,10 @@ a:hover {
   color: white;
 }
 
+.bar-details {
+  color: #ffcdd2;
+}
+
 .main-header {
   font-size: 4em;
   text-shadow: 0 2px 6px #000;

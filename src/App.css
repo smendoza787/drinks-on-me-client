@@ -203,6 +203,7 @@ h3 strong {
       height: 25vh;
       top: 60px;
       position: relative;
+      text-align: center;
     }
     .navigation {
       position: fixed;

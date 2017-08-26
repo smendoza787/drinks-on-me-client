@@ -17,19 +17,3 @@ export function fetchPlaces(latitude, longitude) {
       })
   }
 }
-
-export function getGeocode(location) {
-  let formData = new FormData()
-  formData.append('location', location)
-
-  return (dispatch) => {
-    dispatch({ type: 'LOADING_LOCATION' })
-    return fetch(`${API_URL}/coordinates`, {
-      method: "POST",
-      body: formData
-    }).then(response => response.json())
-      .then(coordinates => {
-        fetchPlaces(coordinates.latitude, coordinates.longitude)
-      })
-  }
-}

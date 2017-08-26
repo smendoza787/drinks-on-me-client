@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addBar } from '../actions/barActions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addBar } from '../actions/barActions'
 
 class AddBar extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class AddBar extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     const { addBar } = this.props
     addBar(this.state)
     this.setState({
@@ -32,7 +32,7 @@ class AddBar extends Component {
       city: '',
       state: '',
       rating: 1,
-    });
+    })
   }
 
   render() {
@@ -143,4 +143,4 @@ class AddBar extends Component {
   }
 }
 
-export default connect(null, { addBar })(AddBar);
+export default connect(null, { addBar })(AddBar)

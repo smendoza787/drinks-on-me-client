@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Comments from './Comments'
-import FavoriteButton from '../components/FavoriteButton'
 import BarDetails from '../components/BarDetails'
 import { fetchPhoto } from '../actions/barActions'
 import FontAwesome from 'react-fontawesome'

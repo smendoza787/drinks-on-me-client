@@ -10,13 +10,14 @@ import Home from './components/Home'
 import BarsPage from './components/BarsPage'
 import AboutPage from './components/AboutPage'
 import FavoritesPage from './containers/FavoritesPage'
-import { fetchBars } from './actions/barActions'
+import { fetchBars, fetchFavoriteBars } from './actions/barActions'
 import { fetchPlaces } from './actions/locationActions'
 import './App.css'
 
 class App extends Component {
   componentWillMount() {
     this.setLocation()
+    this.props.fetchFavoriteBars()
   }
 
   setLocation = () => {
@@ -52,8 +53,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchBars: fetchBars,
-    fetchPlaces: fetchPlaces
+    fetchBars,
+    fetchPlaces,
+    fetchFavoriteBars
   }, dispatch)
 }
 

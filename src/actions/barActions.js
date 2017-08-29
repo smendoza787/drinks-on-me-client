@@ -11,6 +11,15 @@ export function fetchBars() {
   }
 }
 
+export function fetchFavoriteBars() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_BARS' })
+    return fetch(`${API_URL}/bars`)
+      .then(response => response.json())
+      .then(bars => dispatch({ type: 'FETCH_FAVORITE_BARS', payload: bars }))
+  }
+}
+
 export function addBar(bar) {
   return {
     type: 'ADD_BAR',
@@ -18,23 +27,34 @@ export function addBar(bar) {
   }
 }
 
-export function fetchFavoriteBars() {
-  return {
-    type: 'FETCH_FAVORITE_BARS'
-  }
-}
-
 export function addFavoriteBar(bar) {
-  return {
-    type: 'ADD_FAVORITE_BAR',
-    payload: bar
+  var objectToFormData = require('object-to-formdata')
+  var object = { bar: bar }
+  var formData = objectToFormData(object)
+
+
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_BARS' })
+    return fetch(`${API_URL}/bars`, {
+      method: "POST",
+      body: formData
+    }).then(response => response.json())
+      .then(bars => dispatch({ type: 'ADD_FAVORITE_BAR', payload: bar }))
   }
 }
 
 export function removeFavoriteBar(bar) {
-  return {
-    type: 'REMOVE_FAVORITE_BAR',
-    payload: bar
+  var objectToFormData = require('object-to-formdata')
+  var object = { bar: bar }
+  var formData = objectToFormData(object)
+
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_BARS' })
+    return fetch(`${API_URL}/bars/${bar.place_id}`, {
+      method: "DELETE",
+      body: formData
+    }).then(response => response.json())
+      .then(bars => dispatch({ type: 'REMOVE_FAVORITE_BAR', payload: bar }))
   }
 }
 

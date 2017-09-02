@@ -26,7 +26,7 @@ class FavoritesPage extends Component {
     let renderFavorites
 
     if (this.props.favoriteBars.length > 0) {
-      var sortedByRating = this.props.favoriteBars.sort(function(a,b) {
+      var sortedByRating = this.props.favoriteBars.sort((a,b) => {
         return b.rating - a.rating
       })
 

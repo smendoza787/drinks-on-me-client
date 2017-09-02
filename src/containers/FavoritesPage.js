@@ -26,7 +26,11 @@ class FavoritesPage extends Component {
     let renderFavorites
 
     if (this.props.favoriteBars.length > 0) {
-      renderFavorites = this.props.favoriteBars.map(bar =>
+      var sortedByRating = this.props.favoriteBars.sort(function(a,b) {
+        return b.rating - a.rating
+      })
+
+      renderFavorites = sortedByRating.map(bar =>
         <FavoriteBar bar={bar} renderStars={this.renderStars} />
       )
     } else {
